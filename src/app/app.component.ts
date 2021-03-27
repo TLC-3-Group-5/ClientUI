@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
