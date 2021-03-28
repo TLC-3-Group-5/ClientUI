@@ -18,6 +18,21 @@ Table Of contents
 6. Charts
 
 /*------------- dark theme -------------*/
+
+.container-fluid{
+  margin:5em auto;
+}
+.row{
+  justify-content: space-evenly;
+}
+
+#active-orders{
+  border-bottom: 3px solid #eb6a61;
+}
+/* 
+.orders-table{
+  width: 50%;
+} */
 .crypt-dark{
   background: #080e15;
 }
