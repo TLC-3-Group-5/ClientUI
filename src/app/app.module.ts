@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InvestPageComponent } from './components/InvestPage/InvestPage.component';
 import { AboutUsComponent } from './components/AboutUs/AboutUs.component';
 
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -31,7 +33,8 @@ import { AboutUsComponent } from './components/AboutUs/AboutUs.component';
     GetStartedComponent,
     BuyComponent,
     InvestPageComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    DashboardComponent
    ],
   imports: [
     BrowserModule,
