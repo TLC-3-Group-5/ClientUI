@@ -3,12 +3,13 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/Register/Register.component';
 import { ForgotComponent } from './components/Forgot/Forgot.component';
-import { GetStartedComponent } from './components/GetStarted/GetStarted.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MainComponent } from './components/Main/Main.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GetStartedComponent
+    component: MainComponent
   },
   {
     path: 'login',
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'forgot-password',
