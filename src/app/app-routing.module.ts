@@ -5,8 +5,13 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/Register/Register.component';
 import { ForgotComponent } from './components/Forgot/Forgot.component';
+import { GetStartedComponent } from './components/GetStarted/GetStarted.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: GetStartedComponent
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -18,12 +23,8 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotComponent
-  },
-  {
-    path: 'buy-sell',
-    component: BuyComponent
-  },
-  { path: '',   redirectTo: 'all', pathMatch: 'full' }
+  }
+  // { path: '',   redirectTo: 'all', pathMatch: 'full' }
 ];
 
 @NgModule({

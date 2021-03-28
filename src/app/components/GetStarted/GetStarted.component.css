@@ -1,0 +1,28 @@
+.home-background{
+    height: 100vh;
+    background:linear-gradient(0deg, rgba(27, 38, 44, 0.3), rgba(27, 38, 44, 0.3)), url("../../../assets/images/trad-with-desk-keyboard.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+  
+    h1{
+      margin-bottom: 1.5em;
+      color:#fff;
+    }
+  
+    .btn{
+      width: 40%;
+      margin: 1em 0em 0.5em 0em;
+    }
+  
+    .login{
+      background: #1b262c;
+      color: #fff;
+    }
+  
+    .sign-up{
+      border: 1px solid #1b262c;
+      color: #fff;
+    }
