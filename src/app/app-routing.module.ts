@@ -1,3 +1,5 @@
+import { BuyComponent } from './components/Buy/Buy.component';
+import { MarketDataComponent } from './components/MarketData/MarketData.component';
 import { LoginComponent } from './components/Login/Login.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +18,10 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotComponent
+  },
+  {
+    path: 'buy-sell',
+    component: BuyComponent
   },
   { path: '',   redirectTo: 'all', pathMatch: 'full' }
 ];
