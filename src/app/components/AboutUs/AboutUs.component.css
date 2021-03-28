@@ -1,0 +1,205 @@
+/* -----------------------  1-Base configuration -------------------- */
+*, h1,h2, .h1,.h2,
+.price-item h3, p, button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+h1,h2{
+  line-height: normal; }
+
+a {
+  @extent *;
+  line-height: normal;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s; }
+
+a:hover,a:focus {
+  text-decoration: none; }
+
+button {
+  line-height: normal; }
+
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #fab915; }
+
+.family-1, body {
+  font-family: "Source Sans Pro", sans-serif; }
+
+.h2, h2 {
+  font-weight: 700;
+}
+
+body {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 60px; }
+
+.h2, .price-item h3, h2 {
+  font-size: 36px;
+  line-height: 44px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #898989; }
+
+@media only screen and (max-width: 1199px) {
+  .h2, .price-item h3,
+  h2 {
+    font-size: 33px;
+    line-height: 41px; } }
+@media only screen and (max-width: 991px) {
+  h1 {
+    font-size: 45px;
+    line-height: 53px; }
+
+  .h2, .price-item h3,
+  h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .h3,
+  h3 {
+    font-size: 20px;
+    line-height: 28px; }
+
+  .h4,
+  h4 {
+    font-size: 18px;
+    line-height: 26px; }
+
+  p {
+    font-size: 15px;
+    line-height: 23px; } }
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 40px;
+    line-height: 48px; }
+
+  .h2, .price-item h3,h2 {
+    font-size: 30px;
+    line-height: 38px; }
+
+  .h4,h4 {
+    font-size: 18px;
+    line-height: 26px; }
+
+  .h5,h5 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+/* -----------------------  End base configuration -------------------- */
+
+/*  About Part */
+section{
+  display: block;
+  margin: 0 auto;
+}
+section h2{
+  color: black;
+}
+#about-part {
+  padding: 72px 0 80px;
+  background-color: rgb(248, 249, 250);
+}
+.section-p {
+  padding: 80px 0;
+}
+.section-p .section-head h2 {
+  margin-top: -6px;
+}
+
+.about-item h2 {
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+.about-item img {
+  margin: 30px 0;
+}
+.about-item p {
+  font-size: 16px;
+  line-height: 26px;
+  max-width: 320px;
+  margin: auto;
+}
+#about-part {
+  padding: 72px 0 80px;
+}
+.about-item a {
+  background: #fff;
+  color: #fab915;
+  margin-top: 15px;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid #fab915;
+}
+.about-item a:hover {
+  background: #fab915;
+  Color: #fff;
+}
+.about-item:hover h2 {
+  color: #fab915;
+}
+*, h1, h2, h3, h4, h5, h6, .h1, .h2, .price-item h3, .h3, .h4, .h5, .h6, p, ul, ol, dl, button {
+  margin: 0;
+  margin-bottom: 0px;
+  padding: 0;
+  outline: none;
+}
+.about-item {
+  margin-bottom: 35px;
+}
+.about-item p {
+  font-size: 16px;
+  line-height: 26px;
+  max-width: 320px;
+  padding-bottom: 25px;
+}
+.text-center {
+  text-align: center !important;
+}
+.family-1, body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.btn-2 {
+  font-size: 16px;
+  line-height: 26px;
+  border-radius: 12px;
+  padding: 4px 22px;
+}
+
+
+@media only screen and (max-width: 991px) {
+  .about-item {
+    margin-bottom: 55px; }
+  }
+@media only screen and (max-width: 767px) {
+  .about-item a {
+    margin-top: 20px;
+  }
+
+  .about-item img {
+    margin: 16px 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about-item a {
+    margin-top: 15px; }
+
+  .about-item {
+    margin-bottom: 35px;
+  }
+}

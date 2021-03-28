@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/Login/Login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InvestPageComponent } from './components/InvestPage/InvestPage.component';
+import { AboutUsComponent } from './components/AboutUs/AboutUs.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MarketDataComponent,
     GetStartedComponent,
     BuyComponent,
-    DashboardComponent
+    InvestPageComponent,
+    AboutUsComponent
    ],
   imports: [
     BrowserModule,

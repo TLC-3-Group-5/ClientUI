@@ -1,31 +1,70 @@
 <div class="container">
   <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-          <div class="cryptorio-forms cryptorio-forms-dark text-center pt-5 pb-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="cryptorio-forms cryptorio-forms-dark text-center pt-5 pb-5">
 
-              <h3 class="p-4">Sign Up To Trade</h3>
-              <div class="cryptorio-main-form">
-                  <form  class="text-left">
-                      <label for="email">Email</label>
-                      <input type="text" id="email" name="email" placeholder="Your email/cellphone">
-                      <label for="password">Password</label>
-                      <input type="password" id="password" name="password" placeholder="6-20 letters and numbers">
-                      <label for="confirm-password">Confirm Password</label>
-                      <input type="password" id="confirm-password" name="password" placeholder="6-20 letters and numbers">
-                      <!-- <div class="my-1">
-                        <div class="custom-control custom-checkbox mr-sm-2">
-                          <input type="checkbox" class="custom-control-input" id="terms-agree">
-                          <label class="custom-control-label" for="terms-agree">I agree to the terms of services</label>
-                        </div>
-                      </div> -->
-                      <input type="submit" value="SignUp" class="crypt-button-red-full">
-                  </form>
-                  <p class="float-left"><a routerLink="../login">Already have an account? Log In</a></p>
-                  <!-- <p class="float-right"><a routerLink="../forgot-password">Recover Password</a></p> -->
+        <h3 class="p-4">Register</h3>
+        <div class="cryptorio-main-form">
+          <form  class="text-left" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <label for="username">Name</label>
+              <input type="text" id="name" formControlName="name" class="form-control" placeholder="Your name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
               </div>
-          </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" formControlName="email" class="form-control" placeholder="Your email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" formControlName="password" class="form-control" placeholder="password at least 6 characters" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" id="confirm_password" formControlName="confirm_password" class="form-control" placeholder="confirm password" [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }">
+              <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                <div *ngIf="f.confirm_password.errors.required">Please confirm password</div>
+                <div *ngIf="f.confirm_password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+            </div>
+
+            <div class="my-1 form-group">
+              <div class="custom-control custom-checkbox mr-sm-2">
+                <input type="checkbox" class="custom-control-input" id="terms-agree" formControlName="check"  [ngClass]="{ 'is-invalid': submitted && f.check.errors }">
+                <label class="custom-control-label" for="terms-agree">I agree to the terms of services</label>
+                <div *ngIf="submitted && f.check.errors" class="invalid-feedback">
+                  <div *ngIf="f.check.errors.required">Please be agree with our privacy</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <input type="submit" value="SignUp" class="crypt-button-red-full"> -->
+
+            <div class="form-group">
+              <button [disabled]="loading"  type="submit" class="crypt-button-red-full">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Register
+              </button>
+            </div>
+          </form>
+          <p class="float-left"><a routerLink="../login">Log In</a></p>
+        </div>
       </div>
-      <div class="col-md-3"></div>
+    </div>
+    <div class="col-md-3"></div>
   </div>
 </div>

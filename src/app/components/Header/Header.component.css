@@ -5,3 +5,8 @@
   height: 60px;
 }
 
+.navigation{
+  display: flex;
+  justify-content: flex-end;
+}
+
