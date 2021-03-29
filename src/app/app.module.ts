@@ -18,6 +18,7 @@ import { InvestPageComponent } from './components/InvestPage/InvestPage.componen
 import { AboutUsComponent } from './components/AboutUs/AboutUs.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     BuyComponent,
     InvestPageComponent,
     AboutUsComponent,
-    DashboardComponent
+    DashboardComponent,
+    PortfolioComponent
    ],
   imports: [
     BrowserModule,

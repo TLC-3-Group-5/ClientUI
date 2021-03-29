@@ -1,11 +1,12 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="justify-content: space-between;">
     <!-- navbar-dark bg-dark -->
     <a class="navbar-brand" href="#">Le Groupe 5</a>
-    <button class="navbar-toggler hidden-sm-up" type="button" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button class="navbar-toggler hidden-sm-up" type="button" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class=" collapse navbar-collapse navigation">
+    </button> -->
+    <span>Balance: 200 USD </span>
+    <div class=" collapse navbar-collapse navigation" style="flex-grow: unset;">
       <!-- <ul class=" navbar-nav mr-auto">
         <li class="nav-item dropdown" ngbDropdown>
           <a class="nav-link dropdown-toggle" id="id01" href="#" ngbDropdownToggle >Files</a>
@@ -16,6 +17,8 @@
           </div>
         </li>
       </ul> -->
+      
+      
       <ul class="navbar-nav mr-30 ">
         <!-- <li class="nav-item access"><a class="nav-link" routerLink="/buy-sell" routerLinkActive="active" >Echange</a></li>
         <li class="nav-item access"><a class="nav-link">Start Trading</a></li>
@@ -23,7 +26,8 @@
         <li class="nav-item access"><a class="nav-link" routerLink="/register" routerLinkActive="acti
           ve">Register</a></li>
         <li class="nav-item access"><a class="nav-link" routerLink="/" routerLinkActive="">Market data</a></li> -->
-        <li class="nav-item access"><a class="nav-link" routerLinkActive="active" >View Portfolios</a>
+        <li class="nav-item access"><a class="nav-link" routerLinkActive="active" routerLink="/dashboard">Home</a>
+        <li class="nav-item access"><a class="nav-link" routerLinkActive="active" routerLink="/portfolio">View Portfolios</a>
           <li class="nav-item access"><a class="nav-link" routerLinkActive="active" >Logout</a>
 
       </ul>

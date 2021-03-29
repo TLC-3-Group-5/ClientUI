@@ -1,0 +1,32 @@
+.add-portfolio{
+    margin: 6em 5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-portfolio{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.card, .form-control-lg{
+    width: 40%;
+    background: #131722;
+}
+
+.form-control-lg{
+background: #1f2638;
+color: #fff;
+}
+.card-body{
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+    
+}
+
+.table-portfolio{
+    width: 70%;
+    margin: 3em 2em;
+}

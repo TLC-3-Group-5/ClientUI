@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/Register/Register.component';
 import { ForgotComponent } from './components/Forgot/Forgot.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MainComponent } from './components/Main/Main.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,8 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'forgot-password',
-    component: ForgotComponent
+    path: 'portfolio',
+    component: PortfolioComponent
   }
   // { path: '',   redirectTo: 'all', pathMatch: 'full' }
 ];
