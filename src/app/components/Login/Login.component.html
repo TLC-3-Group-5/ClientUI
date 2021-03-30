@@ -9,7 +9,7 @@
 
             <div class="form-group">
               <label for="username">UserName</label>
-              <input type="text" id="name" formControlName="username" class="form-control" placeholder="Your email here" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
+              <input type="text" id="username" formControlName="username" class="form-control" placeholder="Your email here" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
               <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                 <div *ngIf="f.username.errors.required">Username is required</div>
             </div>

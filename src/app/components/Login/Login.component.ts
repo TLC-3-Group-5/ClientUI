@@ -47,23 +47,24 @@ export class LoginComponent implements OnInit {
     let response:any ={};
 
 
-   
+
     // Login user
-    this.clientService.login({email:form.value.email,password:form.value.password})
+    this.clientService.login({email:form.value.username, password:form.value.password})
       .subscribe(
         (res) => {
           response = res;
           if(response.code != 404){
             this.router.navigate(['/dashboard']);
-          // Set session for user
-          this.sessionService.set("userEmail","form.value.email");
+            // Set session for user
+            this.sessionService.set("userEmail", form.value.username);
+            window.sessionStorage.setItem("email", form.value.username);
           }
           else{
           alert(response.status);
           this.loading=false;
           form.resetForm();
           }
-          
+
         },
         (err) => {
           alert(err.error.message);

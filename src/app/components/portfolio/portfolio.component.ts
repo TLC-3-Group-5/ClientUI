@@ -1,8 +1,11 @@
+import { SessionModelService } from './../../services/sessionModel.service';
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ClientServiceService } from 'src/app/services/client-service.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SessionsService } from 'src/app/services/sessions.service';
+
 
 @Component({
   selector: 'app-portfolio',
@@ -15,16 +18,20 @@ export class PortfolioComponent implements OnInit {
 
   closeResult = '';
   public input: any;
+  sessionService: SessionsService;
 
   constructor(
     private modalService: NgbModal,
     private clientService:ClientServiceService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private ss:SessionsService,
   ){
     this.input = {
-      name: ''
+      name: "",
+      email: ""
     };
+    this.sessionService = ss;
   }
 
   ngOnInit(): void {
@@ -41,9 +48,13 @@ export class PortfolioComponent implements OnInit {
   public portfolio() {
     if (this.input.name) {
       let headers = new HttpHeaders({ 'content-type': 'application/json' });
-      this.http.post(this.CLIENT_SERVER+'/client/portfolio', this.input, { headers: headers })
+
+      console.log(window.sessionStorage.getItem("email"));
+      this.input.email = window.sessionStorage.getItem("email");
+
+      this.http.post(this.CLIENT_SERVER+'/portfolio/create', this.input, { headers: headers })
         .subscribe((res) =>
-          this.router.navigate(['/home'])
+          this.router.navigate(['/dashboard'])
         ),
         () => console.log("successfully added");
     }
@@ -54,6 +65,16 @@ export class PortfolioComponent implements OnInit {
     this.portfolio();
   }
 
+  //getting all portfolios
+  // public getPortfolios(){
+  //   let headers = new HttpHeaders({ 'content-type': 'application/json' });
+  //   this.http.get(this.CLIENT_SERVER+'/client/portfolio', get, { headers: headers })
+  //       .subscribe((res) =>
+  //         this.router.navigate(['/dashboard'])
+  //       ),
+  //       () => console.log("successfully added");
+  //   }
+  // }
 
   // add portfolio
 
