@@ -58,6 +58,9 @@ export class LoginComponent implements OnInit {
             // Set session for user
             this.sessionService.set("userEmail", form.value.username);
             window.sessionStorage.setItem("email", form.value.username);
+
+            // store user object in session store
+            window.sessionStorage.setItem("user", JSON.stringify(response?.data));
           }
           else{
           alert(response.status);

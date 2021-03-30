@@ -1,6 +1,6 @@
 <app-Header></app-Header>
 <div class="add-portfolio">
-    <h3 class="text-center">You have 2 Portfolios</h3>
+    <h3 class="text-center">You have {{ portfolios?.length || '-' }} portfolio(s)</h3>
     <button type="button" class="btn btn-secondary"  (click)="open(content)"><span>+</span> Add Portfolio</button>
 
 </div>
@@ -19,41 +19,21 @@
     <table class="table table-dark" style="margin-bottom: 0;">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Buy Price</th>
-            <th scope="col">Avg. Current Price</th>
-            <th scope="col">Profit/Loss</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Stocks #</th>
+            <th scope="col" class="text-right">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>MSFT</td>
-            <td>20</td>
-            <td>1.2</td>
-            <td>1.5</td>
-            <td>Profit</td>
+          <tr *ngFor="let portfolio of portfolios; let i=index">
+            <th scope="row">{{ portfolio?.id }}</th>
+            <td>{{ portfolio?.name }}</td>
+            <td>{{ portfolio?.ownedStocks?.length }}</td>
+            <td class="text-right">
+              <button class="btn btn-sm btn-outline-primary">View profit/loss</button>
+            </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>NFLX</td>
-            <td>35</td>
-            <td>1.7</td>
-            <td>0.5</td>
-            <td>Loss</td>
-          </tr>
-        </tbody>
-
-      </table>
-      <table class="table table-dark" >
-        <tbody>
-            <tr>
-                <td>
-                    Portfolio Value ~ 387 USD
-                </td>
-            </tr>
         </tbody>
       </table>
 

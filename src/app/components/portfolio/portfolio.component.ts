@@ -1,4 +1,4 @@
-import { SessionModelService } from './../../services/sessionModel.service';
+
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ClientServiceService } from 'src/app/services/client-service.service';
@@ -19,6 +19,7 @@ export class PortfolioComponent implements OnInit {
   closeResult = '';
   public input: any;
   sessionService: SessionsService;
+  public portfolios: any;
 
   constructor(
     private modalService: NgbModal,
@@ -35,6 +36,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getPortfolios();
   }
 
   open(content: any) {
@@ -45,6 +47,7 @@ export class PortfolioComponent implements OnInit {
     });
   }
 
+   // adding portfolio
   public portfolio() {
     if (this.input.name) {
       let headers = new HttpHeaders({ 'content-type': 'application/json' });
@@ -52,9 +55,9 @@ export class PortfolioComponent implements OnInit {
       this.input.email = window.sessionStorage.getItem("email");
 
       this.http.post(this.CLIENT_SERVER+'/portfolio/create', this.input, { headers: headers })
-        .subscribe((res) =>
-          this.router.navigate(['/dashboard'])
-        ),
+        .subscribe((res) => {
+          this.getPortfolios()
+        }),
         () => console.log("successfully added");
     }
   }
@@ -64,31 +67,17 @@ export class PortfolioComponent implements OnInit {
     this.portfolio();
   }
 
-  //getting all portfolios
-  // public getPortfolios(){
-  //   let headers = new HttpHeaders({ 'content-type': 'application/json' });
-  //   this.http.get(this.CLIENT_SERVER+'/client/portfolio', get, { headers: headers })
-  //       .subscribe((res) =>
-  //         this.router.navigate(['/dashboard'])
-  //       ),
-  //       () => console.log("successfully added");
-  //   }
-  // }
+  // getting all portfolios
+  public getPortfolios(){
+    let headers = new HttpHeaders({ 'content-type': 'application/json' });
+    const clientId: number = JSON.parse(<string>window.sessionStorage.getItem("user"))?.id;
 
-  // add portfolio
-
-  // this.clientService.portfolio({userId:this.input.portfolioName})
-  //     .subscribe(
-  //       (res) => {
-  //         // Set portfolio for user
-  //         this.sessionService.set("userId", "form.value.name");
-  //       },
-  //       (err) => {
-  //         alert(err.error.message);
-  //         this.loading=false;
-  //         this.resetForm();
-  //       },
-  //       () => console.log('HTTP request completed...')
-  //     )
+    this.http.get(this.CLIENT_SERVER+`/client/${clientId}`, { headers: headers })
+        .subscribe((res) => {
+          this.portfolios = (<any>res)?.portfolios;
+          console.log(this.portfolios);
+        }),
+        () => console.log("successfully added");
+  }
 
 }

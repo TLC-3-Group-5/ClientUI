@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
       this.clientService.signup({name:form.value.name,email:form.value.email,password:form.value.password})
       .subscribe(
         (res) => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/login']);
           // Set session for user
           this.sessionService.set("userEmail", form.value.email);
           window.sessionStorage.setItem("email", form.value.email);
