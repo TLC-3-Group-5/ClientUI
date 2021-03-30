@@ -6,11 +6,11 @@
 
         <h3 class="p-4">Sign Up To Trade</h3>
         <div class="cryptorio-main-form">
-          <form  class="text-left" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <form #userSignup="ngForm" class="text-left" [formGroup]="form" (ngSubmit)="onSubmit(userSignup)">
 
             <div class="form-group">
               <label for="username">Name</label>
-              <input type="text" id="name" formControlName="name" class="form-control" placeholder="Your name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+              <input type="text" id="name" formControlName="name" class="form-control" placeholder="Your name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" name="name">
               <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                 <div *ngIf="f.name.errors.required">Name is required</div>
               </div>

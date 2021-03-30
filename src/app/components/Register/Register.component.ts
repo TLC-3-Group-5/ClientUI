@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClientServiceService } from '../../services/client-service.service';
+import {Router} from "@angular/router";
+import { SessionsService } from 'src/app/services/sessions.service';
 
 @Component({
   selector: 'app-Register',
@@ -12,7 +15,10 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private clientService:ClientServiceService,
+    private router: Router,
+    private sessionService:SessionsService,
   ){}
 
   ngOnInit() {
@@ -28,29 +34,34 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.form.controls; }
 
-    onSubmit() {
+    onSubmit(form:any) {
       this.submitted = true;
 
-      // reset alerts on submit
-      // this.alertService.clear();
+      let registerResponse:any={};
 
-      // stop here if form is invalid
+    
       if (this.form.invalid) {
         return;
       }
 
       this.loading = true;
-      // this.accountService.register(this.form.value)
-      //     .pipe(first())
-      //     .subscribe({
-      //         next: () => {
-      //             this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-      //             this.router.navigate(['../login'], { relativeTo: this.route });
-      //         },
-      //         error: error => {
-      //             this.alertService.error(error);
-      //             this.loading = false;
-      //         }
-      //     });
+
+      // Register new user
+      this.clientService.signup({name:form.value.name,email:form.value.email,password:form.value.password})
+      .subscribe(
+        (res) => {
+          this.router.navigate(['/dashboard']);
+          // Set session for user
+          this.sessionService.set("userEmail","form.value.email");
+        },
+        (err) => {
+          alert(err.error.message);
+          this.loading=false;
+          form.resetForm();
+        },
+        () => console.log('HTTP request completed.')
+        )
+      
+      
     }
   }
