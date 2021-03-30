@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { SessionsService } from 'src/app/services/sessions.service';
+import { ClientServiceService } from '../../services/client-service.service';
 
 @Component({
   selector: 'app-Login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
     constructor(
       private formBuilder: FormBuilder,
-      private sessionService:SessionsService
+      private sessionService:SessionsService,
+      private clientService:ClientServiceService
     ) {}
 
   ngOnInit(){
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
 
-  onSubmit() {
+  onSubmit(data:any) {
     this.submitted = true;
 
     // reset alerts on submit
@@ -39,18 +41,14 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    // this.accountService.login(this.f.username.value, this.f.password.value)
-    //     .pipe(first())
-    //     .subscribe({
-    //         next: () => {
-    //             // get return url from query parameters or default to home page
-    //             const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    //             this.router.navigateByUrl(returnUrl);
-    //         },
-    //         error: error => {
-    //             this.alertService.error(error);
-    //             this.loading = false;
-    //         }
-    //     });
+   
+    // Login user
+    this.clientService.login({email:data.email,password:data.password})
+    .subscribe((data: {})=>{
+      
+      // if successful redirect user to dashboard
+      // set session id and email for user
+      console.log(typeof data);
+    })
   }
 }
