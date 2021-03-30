@@ -12,12 +12,15 @@ export class SessionsService {
   public set(key:string, value:string){
     this.SessionModelService[key]=value;
   }
+
   get(key:string):string{
     return this.SessionModelService[key]
   }
+
   remove(key:string){
     this.SessionModelService[key]=null;
   }
+
   clear(){
   this.SessionModelService=new SessionModelService();
   }
