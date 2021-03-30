@@ -20,54 +20,15 @@
           <div class="intro-form-exchange">
             <h4 class="mr-sm-2">Happening in the market now!</h4> 
             <form class="currency_validate" method="post" name="myform">
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="MSFT">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="125.00 USD">
+              <div *ngFor="let stock of marketData">
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <input class="form-control" type="text" name="usd_amount" placeholder="" value="{{stock.TICKER}}" readonly>
+                    <input class="form-control" type="text" name="usd_amount" placeholder="" value="{{stock.LAST_TRADED_PRICE+' USD'}}" readonly>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="NFLX">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="100.00 USD">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="IBM">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="85.00 USD">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="GOOGL">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="52.00 USD">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="TSLA">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="12.00 USD">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="AAPL">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="195.00 USD">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="AMZN">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="73.00 USD">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="ORCL">
-                  <input class="form-control" type="text" name="usd_amount" placeholder="25.00 USD">
-                </div>
-              </div>
+              
 
               <!-- <div class="form-group">
                 <label class="mr-sm-2">Get</label>

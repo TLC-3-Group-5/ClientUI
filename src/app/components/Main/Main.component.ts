@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientServiceService } from '../../services/client-service.service';
 
 @Component({
   selector: 'app-Main',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  marketData:any = [];
+
+  constructor(private clientService:ClientServiceService) { }
 
   ngOnInit() {
+    this.clientService.getMarketData().subscribe((data: {})=>{
+      console.log(data);
+      this.marketData = data;
+    })
   }
 
 }
