@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
 
       let registerResponse:any={};
 
-    
+
       if (this.form.invalid) {
         return;
       }
@@ -52,7 +52,8 @@ export class RegisterComponent implements OnInit {
         (res) => {
           this.router.navigate(['/dashboard']);
           // Set session for user
-          this.sessionService.set("userEmail","form.value.email");
+          this.sessionService.set("userEmail", form.value.email);
+          window.sessionStorage.setItem("email", form.value.email);
         },
         (err) => {
           alert(err.error.message);
@@ -61,7 +62,7 @@ export class RegisterComponent implements OnInit {
         },
         () => console.log('HTTP request completed.')
         )
-      
-      
+
+
     }
   }

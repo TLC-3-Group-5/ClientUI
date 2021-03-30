@@ -49,7 +49,6 @@ export class PortfolioComponent implements OnInit {
     if (this.input.name) {
       let headers = new HttpHeaders({ 'content-type': 'application/json' });
 
-      console.log(window.sessionStorage.getItem("email"));
       this.input.email = window.sessionStorage.getItem("email");
 
       this.http.post(this.CLIENT_SERVER+'/portfolio/create', this.input, { headers: headers })
