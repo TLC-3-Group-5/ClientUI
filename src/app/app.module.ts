@@ -22,8 +22,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { MarketDataComponent } from './components/MarketData/MarketData.component';
 
-import { HttpClientModule } from '@angular/common/http';
-
 @NgModule({
   declarations: [
     MainComponent,
@@ -41,15 +39,13 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     PortfolioComponent,
     MarketDataComponent
-
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

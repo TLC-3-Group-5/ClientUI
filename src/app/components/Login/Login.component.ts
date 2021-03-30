@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { SessionsService } from 'src/app/services/sessions.service';
 
 @Component({
   selector: 'app-Login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
     submitted = false;
 
     constructor(
-      private formBuilder: FormBuilder
+      private formBuilder: FormBuilder,
+      private sessionService:SessionsService
     ) {}
 
   ngOnInit(){
