@@ -1,6 +1,6 @@
+
 import { BuyComponent } from './components/Buy/Buy.component';
 import { GetStartedComponent } from './components/GetStarted/GetStarted.component';
-import { MarketDataComponent } from './components/MarketData/MarketData.component';
 import { MainComponent } from './components/Main/Main.component';
 import { FooterComponent } from './components/Footer/Footer.component';
 import { HeaderComponent } from './components/Header/Header.component';
@@ -27,7 +27,6 @@ import { AboutUsComponent } from './components/AboutUs/AboutUs.component';
     HeaderComponent,
     HeaderComponent,
     FooterComponent,
-    MarketDataComponent,
     GetStartedComponent,
     BuyComponent,
     InvestPageComponent,
