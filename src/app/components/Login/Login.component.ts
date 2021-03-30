@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { SessionsService } from 'src/app/services/sessions.service';
 import { ClientServiceService } from '../../services/client-service.service';
 
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-Login',
   templateUrl: './Login.component.html',
@@ -16,6 +18,7 @@ export class LoginComponent implements OnInit {
     constructor(
       private formBuilder: FormBuilder,
       private sessionService:SessionsService,
+      private router: Router,
       private clientService:ClientServiceService
     ) {}
 
@@ -29,7 +32,7 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
 
-  onSubmit(data:any) {
+  onSubmit(form:any) {
     this.submitted = true;
 
     // reset alerts on submit
@@ -41,14 +44,33 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
+    let response:any ={};
+
+
    
     // Login user
-    this.clientService.login({email:data.email,password:data.password})
-    .subscribe((data: {})=>{
-      
-      // if successful redirect user to dashboard
-      // set session id and email for user
-      console.log(typeof data);
-    })
+    this.clientService.login({email:form.value.email,password:form.value.password})
+      .subscribe(
+        (res) => {
+          response = res;
+          if(response.code != 404){
+            this.router.navigate(['/dashboard']);
+          // Set session for user
+          this.sessionService.set("userEmail","form.value.email");
+          }
+          else{
+          alert(response.status);
+          this.loading=false;
+          form.resetForm();
+          }
+          
+        },
+        (err) => {
+          alert(err.error.message);
+          this.loading=false;
+          form.resetForm();
+        },
+        () => console.log('HTTP request completed.')
+        )
   }
 }
