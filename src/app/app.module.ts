@@ -20,6 +20,8 @@ import { AboutUsComponent } from './components/AboutUs/AboutUs.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -43,7 +45,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
