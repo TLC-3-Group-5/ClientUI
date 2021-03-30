@@ -2,7 +2,7 @@
 <div class="add-portfolio">
     <h3 class="text-center">You have 2 Portfolios</h3>
     <button type="button" class="btn btn-secondary"  (click)="open(content)"><span>+</span> Add Portfolio</button>
-    
+
 </div>
 <div class="list-portfolio">
     <div class="card">
@@ -45,10 +45,10 @@
             <td>Loss</td>
           </tr>
         </tbody>
-        
+
       </table>
       <table class="table table-dark" >
-        <tbody> 
+        <tbody>
             <tr>
                 <td>
                     Portfolio Value ~ 387 USD
@@ -71,7 +71,7 @@
         <div class="form-group">
           <label for="dateOfBirth">Name of Portfolio</label>
           <div class="input-group">
-            <input id="portfolioName" class="form-control" placeholder="" name="portfolioName" type="text" >
+            <input id="name" class="form-control"  placeholder="Portfolio name" name="name" type="text" [(ngModel)]="input.name" >
             <!-- <div class="input-group-append">
               <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
             </div> -->
@@ -80,6 +80,6 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Create</button>
+      <button type="button" class="btn btn-outline-dark" (click)="onSave()">Create</button>
     </div>
   </ng-template>

@@ -31,20 +31,27 @@ export class ClientServiceService {
     return this.httpClient.get(this.MALON_API_SERVER+'/md').pipe( catchError(err => {
       console.log('Handling error locally and rethrowing it...', err);
       return throwError(err);
-  }));
+    }));
   }
 
   public signup(details:any){
     return this.httpClient.post(this.CLIENT_SERVER+'/client/signup',details).pipe( catchError(err => {
       console.log('Handling error locally and rethrowing it...', err);
       return throwError(err);
-  }));
+    }));
   }
 
   public login(details:any){
     return this.httpClient.post(this.CLIENT_SERVER+'/client/login',details).pipe( catchError(err => {
       console.log('Handling error locally and rethrowing it...', err);
       return throwError(err);
-  }));
+    }));
   }
+
+  // public portfolio(details:any){
+  //   return this.httpClient.post(this.CLIENT_SERVER+'/client/portfolio',details).pipe( catchError(err => {
+  //     console.log('Handling error locally and rethrowing it...', err);
+  //     return throwError(err);
+  //   }));
+  // }
 }
