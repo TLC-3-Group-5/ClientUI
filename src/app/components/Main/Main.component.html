@@ -3,33 +3,73 @@
     <div class="row justify-content-between align-items-center">
       <div class="col-xl-6 col-lg-6 col-12">
         <div class="intro-content">
-          <h1>Trade with <strong class="text-primary">Tradio.</strong><br>
-          Buy and sell in a real time
+          <h1>Trade with <strong class="text-primary">Le Groupe 5.</strong><br>
+          Buy and sell stocks in real time.
           </h1>
-          <p id="para">Fast and secure way ot purchase or exchange 150+ market data from differents stocks</p>
+          <p id="para">Best trading engine to get you the best deals in the market.</p>
         </div>
 
         <div class="intro-btn pt-4">
-          <a class="btn btn-primary px-5" href="/">Get Started</a>
-          <a class="btn btn-outline-primary ml-4 px-5 text-center" href="/">Buy Now</a>
+          <a class="btn btn-primary px-5" routerLink="/login">Log In</a>
+          <a class="btn btn-outline-primary ml-4 px-5 text-center" routerLink="/register">Sign Up</a>
+          
         </div>
       </div>
 
       <div class="col-xl-5 col-lg-6 col-12">
           <div class="intro-form-exchange">
+            <h4 class="mr-sm-2">Happening in the market now!</h4> 
             <form class="currency_validate" method="post" name="myform">
               <div class="form-group">
-                <label class="mr-sm-2">Send</label>
                 <div class="input-group mb-3">
-                  <select class="form-control" name="currency">
-                    <option data-display="Bitcoin" value="bitcoin">Bitcoin</option>
-                    <option value="litecoin">Litecoin</option>
-                  </select>
+                  <input class="form-control" type="text" name="usd_amount" placeholder="MSFT">
                   <input class="form-control" type="text" name="usd_amount" placeholder="125.00 USD">
                 </div>
               </div>
-
               <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="NFLX">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="100.00 USD">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="IBM">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="85.00 USD">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="GOOGL">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="52.00 USD">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="TSLA">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="12.00 USD">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="AAPL">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="195.00 USD">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="AMZN">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="73.00 USD">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="ORCL">
+                  <input class="form-control" type="text" name="usd_amount" placeholder="25.00 USD">
+                </div>
+              </div>
+
+              <!-- <div class="form-group">
                 <label class="mr-sm-2">Get</label>
                 <div class="input-group mb-3">
                   <select class="form-control" name="currency">
@@ -42,13 +82,13 @@
                   <p class="mb-0">Monthly Limit</p>
                   <h6>$49512 remaining</h6>
                 </div>
-              </div>
+              </div> -->
 
               <a class="btn btn-success btn-block" type="submit" name="submit" href="/">
-                Exchange Now
-                <i class="la la-arrow-right">
+                Login To Trade Now.
+                <!-- <i class="la la-arrow-right">
                   ::before
-                </i>
+                </i> -->
               </a>
             </form>
           </div>

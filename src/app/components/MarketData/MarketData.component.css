@@ -1,0 +1,21 @@
+.parent,p{
+  margin-top: 6em;
+  width: 100%;
+}
+.card{
+  background: #131722;
+  width: 25%;
+}
+
+.top,.bottom{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card-body{
+  width: 70%;
+  margin: auto auto;
+  display: flex;
+  justify-content: space-evenly;
+}

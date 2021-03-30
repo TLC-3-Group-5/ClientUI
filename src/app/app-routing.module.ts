@@ -4,12 +4,14 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/Register/Register.component';
 import { ForgotComponent } from './components/Forgot/Forgot.component';
-import { GetStartedComponent } from './components/GetStarted/GetStarted.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MainComponent } from './components/Main/Main.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GetStartedComponent
+    component: MainComponent
   },
   {
     path: 'login',
@@ -20,12 +22,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'forgot-password',
-    component: ForgotComponent
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
-    path: 'buy-sell',
-    component: BuyComponent
+    path: 'portfolio',
+    component: PortfolioComponent
   }
   // { path: '',   redirectTo: 'all', pathMatch: 'full' }
 ];

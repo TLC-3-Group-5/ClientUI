@@ -1,0 +1,85 @@
+<app-Header></app-Header>
+<div class="add-portfolio">
+    <h3 class="text-center">You have 2 Portfolios</h3>
+    <button type="button" class="btn btn-secondary"  (click)="open(content)"><span>+</span> Add Portfolio</button>
+    
+</div>
+<div class="list-portfolio">
+    <div class="card">
+        <div class="card-body">
+          Selected Portfolio
+        </div>
+      </div>
+    <select class="form-control form-control-lg">
+        <option>Tech</option>
+        <option>Cars</option>
+      </select>
+</div>
+<div class="table-portfolio">
+    <table class="table table-dark" style="margin-bottom: 0;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Buy Price</th>
+            <th scope="col">Avg. Current Price</th>
+            <th scope="col">Profit/Loss</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>MSFT</td>
+            <td>20</td>
+            <td>1.2</td>
+            <td>1.5</td>
+            <td>Profit</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>NFLX</td>
+            <td>35</td>
+            <td>1.7</td>
+            <td>0.5</td>
+            <td>Loss</td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <table class="table table-dark" >
+        <tbody> 
+            <tr>
+                <td>
+                    Portfolio Value ~ 387 USD
+                </td>
+            </tr>
+        </tbody>
+      </table>
+
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Create New Portfolio</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="dateOfBirth">Name of Portfolio</label>
+          <div class="input-group">
+            <input id="portfolioName" class="form-control" placeholder="" name="portfolioName" type="text" >
+            <!-- <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+            </div> -->
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Create</button>
+    </div>
+  </ng-template>
