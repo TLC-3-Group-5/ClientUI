@@ -15,11 +15,14 @@ import { SessionsService } from 'src/app/services/sessions.service';
 export class PortfolioComponent implements OnInit {
 
   private CLIENT_SERVER = "https://g5-client-connectivity.herokuapp.com";
+  headers = new HttpHeaders({ 'content-type': 'application/json' });
+
 
   closeResult = '';
   public input: any;
   sessionService: SessionsService;
   public portfolios: any;
+  public selectedPortfolioDetails: any;
 
   constructor(
     private modalService: NgbModal,
@@ -50,11 +53,9 @@ export class PortfolioComponent implements OnInit {
    // adding portfolio
   public portfolio() {
     if (this.input.name) {
-      let headers = new HttpHeaders({ 'content-type': 'application/json' });
-
       this.input.email = window.sessionStorage.getItem("email");
 
-      this.http.post(this.CLIENT_SERVER+'/portfolio/create', this.input, { headers: headers })
+      this.http.post(this.CLIENT_SERVER+'/portfolio/create', this.input, { headers: this.headers })
         .subscribe((res) => {
           this.getPortfolios()
         }),
@@ -69,15 +70,35 @@ export class PortfolioComponent implements OnInit {
 
   // getting all portfolios
   public getPortfolios(){
-    let headers = new HttpHeaders({ 'content-type': 'application/json' });
     const clientId: number = JSON.parse(<string>window.sessionStorage.getItem("user"))?.id;
 
-    this.http.get(this.CLIENT_SERVER+`/client/${clientId}`, { headers: headers })
+    this.http.get(this.CLIENT_SERVER+`/client/${clientId}`, { headers: this.headers })
         .subscribe((res) => {
           this.portfolios = (<any>res)?.portfolios;
-          console.log(this.portfolios);
         }),
         () => console.log("successfully added");
+  }
+
+  public onViewModal(porfolioId: number, content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed `;
+    });
+
+    this.getPortfolioDetails(porfolioId);
+  }
+
+  public getPortfolioDetails(id: number) {
+    this.selectedPortfolioDetails = {}
+    // get portfolio details
+    const selectedPortfolio = this.portfolios.filter((p: any) => p.id === id);
+    // get profit/loss info
+    this.http.get(this.CLIENT_SERVER + `/portfolio/${id}`, { headers: this.headers })
+      .subscribe((res) => {
+
+      }),
+      () => console.log("successfully added");
   }
 
 }
