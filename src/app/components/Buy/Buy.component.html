@@ -67,16 +67,10 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <!-- <div class="text-center mt-3 mb-3 crypt-up">
-                                        <p>You will approximately pay</p>
-                                        <h4>0.09834 <span>USD</span></h4>
-                                    </div> -->
-                                    <button type="submit" class="crypt-button-green-full">
-                                        BUY
+                                    <button [disabled]="isBuying"  type="submit" class="crypt-button-red-full">
+                                        <span *ngIf="isBuying" class="spinner-border spinner-border-sm mr-1"></span>
+                                          BUY
                                     </button>
-                                    <!-- <div class="menu-green">
-                                        <a href="javascript:void(0)" (click)="onBuyStock" class="crypt-button-green-full">Buy</a>
-                                    </div> -->
                                 </div>
                             </div>
                         </form>
@@ -118,7 +112,11 @@
                                         <p>You will approximately get</p>
                                         <h4>0.09834 <span>USD</span></h4>
                                     </div> -->
-                                    <div><a href="#" class="crypt-button-red-full">Sell</a></div>
+                                    <!-- <div><a href="#" class="crypt-button-red-full">Sell</a></div> -->
+                                    <button [disabled]="isSelling"  type="submit" class="crypt-button-green-full">
+                                        <span *ngIf="isSelling" class="spinner-border spinner-border-sm mr-1"></span>
+                                          SELL
+                                    </button>
                                 </div>
                             </div>
                         </form>

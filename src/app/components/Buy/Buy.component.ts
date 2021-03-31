@@ -16,6 +16,8 @@ export class BuyComponent implements OnInit {
   public avalableProducts: any;
   public avalablePortfolios: any;
   bForm: any = FormGroup;
+  isBuying: boolean = false;
+  isSelling: boolean = false;
 
   constructor(
     private clientService: ClientServiceService,
@@ -57,6 +59,8 @@ export class BuyComponent implements OnInit {
       return alert("Please fill all fields");
     }
 
+    this.isBuying = true;
+
     const order = {
       portfolio_id: (<HTMLInputElement> document.getElementById("buy-portfolioId"))?.value,
       product: (<HTMLInputElement> document.getElementById("buy-product"))?.value,
@@ -69,14 +73,43 @@ export class BuyComponent implements OnInit {
     this.http.post(PLACE_ORDER_URL, order, { headers: this.headers })
       .subscribe((res) => {
         this.avalablePortfolios = (<any>res)?.portfolios;
+        alert("Buy order placed");
+        this.isBuying = false
+      },
+      (err) => {
+        alert("Could not place buy order");
+        this.isBuying = false
       });
-    // display response
   }
 
   public onSellStock(form: any) {
     const PLACE_ORDER_URL = this.CLIENT_SERVER + "/client/getOrderStatus";
-    // place sell order
-    // display response
+    
+    if (form.invalid) {
+      return alert("Please fill all fields");
+    }
+
+    this.isSelling = true;
+
+    const sell = {
+      portfolio_id: (<HTMLInputElement> document.getElementById("sell-portfolioId"))?.value,
+      product: (<HTMLInputElement> document.getElementById("sell-product"))?.value,
+      quantity: (<HTMLInputElement> document.getElementById("sell-quantity"))?.value,
+      price: (<HTMLInputElement> document.getElementById("sell-price"))?.value,
+      side: "SELL"
+    };
+
+     // place sell order
+     this.http.post(PLACE_ORDER_URL, sell, { headers: this.headers })
+     .subscribe((res) => {
+       this.avalablePortfolios = (<any>res)?.portfolios;
+       alert("Sell order placed");
+       this.isSelling = false
+     },
+     (err) => {
+       alert("Could not place sell order");
+       this.isSelling = false
+     });
   }
 
 }
